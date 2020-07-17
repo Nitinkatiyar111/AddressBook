@@ -82,5 +82,12 @@ public class AddressBookServiceImpl implements AddressBookService{
 		sortedUsers.addAll(list);
 		display(sortedUsers);
 	}
+	
+	@Override
+	public void sortByZip() {
+		sortedUsers = new TreeSet<>(new AddressBookZipComparator());
+		sortedUsers.addAll(list);
+		display(sortedUsers);
+	}
 
 }

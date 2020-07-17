@@ -12,7 +12,7 @@ public class AddressBookManager {
 		AddressBookService addressBookService = new AddressBookServiceImpl();
 		boolean flag = true;
 		while (flag) {
-			System.out.println("1: Add Person \n2: Edit Person \n3: Delete Person \n4: Sort By Name");
+			System.out.println("1: Add Person \n2: Edit Person \n3: Delete Person \n4: Sort By Name \n5: Sort By Zip \n6: Terminate");
 			System.out.println("Please enter the choice : ");
 			int choice = ScannerUtils.getInt();
 			switch (choice) {
@@ -27,6 +27,9 @@ public class AddressBookManager {
 				break;
 			case 4:
 				addressBookService.sortByName();
+				break;
+			case 5:
+				addressBookService.sortByZip();
 				break;
 			default:
 				flag = false;
