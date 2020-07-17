@@ -7,6 +7,7 @@ import java.util.Collection;
 import com.bridgelabz.model.Person;
 import com.bridgelabz.service.AddressBookService;
 import com.bridgelabz.utility.InputUtility;
+import com.bridgelabz.utility.ScannerUtils;
 
 public class AddressBookServiceImpl implements AddressBookService{
 
@@ -55,6 +56,23 @@ public class AddressBookServiceImpl implements AddressBookService{
 			}
 		}
 		
+	}
+	
+	@Override
+	public void deletePerson() {
+		System.out.println("Enter the employee's first-name and last-name");
+		String firstName = ScannerUtils.getString();
+		String lastName = ScannerUtils.getString();
+		boolean isDelete  = list.removeIf( 
+				user -> user.getFirstName().equalsIgnoreCase(firstName)
+						&& user.getLastName().equalsIgnoreCase(lastName));
+		if(isDelete) {
+			System.out.println("The Person "+firstName+" "+lastName+" Deleted from AddressBook");
+		}
+		else {
+			System.out.println("Person Not present");
+		}
+		display(list);
 	}
 
 }
