@@ -2,7 +2,7 @@ package com.bridgelabz.service.serviceimpl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.TreeSet;
 
 import com.bridgelabz.model.Person;
 import com.bridgelabz.service.AddressBookService;
@@ -12,6 +12,7 @@ import com.bridgelabz.utility.ScannerUtils;
 public class AddressBookServiceImpl implements AddressBookService{
 
 	private ArrayList<Person> list = new ArrayList<>();
+	private TreeSet<Person> sortedUsers;
 	
 	@Override
 	public void addNewPerson() {
@@ -73,6 +74,13 @@ public class AddressBookServiceImpl implements AddressBookService{
 			System.out.println("Person Not present");
 		}
 		display(list);
+	}
+	
+	@Override
+	public void sortByName() {
+		sortedUsers = new TreeSet<>(new AddressBookNameComparator());
+		sortedUsers.addAll(list);
+		display(sortedUsers);
 	}
 
 }

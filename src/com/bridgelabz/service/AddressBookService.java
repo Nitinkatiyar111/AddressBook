@@ -5,4 +5,5 @@ public interface AddressBookService {
 	void addNewPerson();
 	void editPerson();
     void deletePerson();
+    void sortByName();
 }
